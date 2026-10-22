@@ -8,7 +8,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: deploy-software-hub-crds
+  name: deploy-software-hub-crds-<student-number>
   namespace: openshift-gitops
 spec:
   project: default
@@ -18,7 +18,7 @@ spec:
       targetRevision: main
       path: helm/install-software-hub-crds
       helm:
-        releaseName: software-hub-crds
+        releaseName: software-hub-crds-<student-number>
         valueFiles:
           - $overrides/overrides/values.yaml
     - repoURL: <YOUR-REPO-URL>
