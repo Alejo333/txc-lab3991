@@ -8,26 +8,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: deploy-software-hub-<student-number>
+  name: deploy-software-hub-student11
   namespace: openshift-gitops
 spec:
   project: default
 
   sources:
-    - repoURL: <YOUR-REPO-URL>
+    - repoURL: https://github.com/Alejo333/txc-lab3991.git
       targetRevision: main
       path: helm/install-software-hub
       helm:
-        releaseName: software-hub-<student-number>
+        releaseName: software-hub-student11
         valueFiles:
           - $overrides/overrides/values.yaml
-    - repoURL: <YOUR-REPO-URL>
+    - repoURL: https://github.com/Alejo333/txc-lab3991.git
       targetRevision: main
       ref: overrides
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: <YOUR-NAMESPACE>
+    namespace: cpd-student11
 
   syncPolicy:
     automated:
