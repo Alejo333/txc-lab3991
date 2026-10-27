@@ -8,26 +8,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: deploy-watsonx-crds-<student-number>
+  name: deploy-watsonx-crds-student11
   namespace: openshift-gitops
 spec:
   project: default
 
   sources:
-    - repoURL: <YOUR-REPO-URL>
+    - repoURL: https://github.com/Alejo333/txc-lab3991.git
       targetRevision: main
       path: helm/install-watsonx-crds
       helm:
-        releaseName: watsonx-crds-<student-number>
+        releaseName: watsonx-crds-student11
         valueFiles:
           - $overrides/overrides/values.yaml
-    - repoURL: <YOUR-REPO-URL>
+    - repoURL: https://github.com/Alejo333/txc-lab3991.git
       targetRevision: main
       ref: overrides
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: <YOUR-NAMESPACE>
+    namespace: cpd-student11
 
   syncPolicy:
     automated:
